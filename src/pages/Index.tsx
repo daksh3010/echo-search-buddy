@@ -7,7 +7,6 @@ import GoogleLogout from "@/components/GoogleLogout";
 import SearchResults, { SearchResult } from "@/components/SearchResults";
 import { searchInternet } from "@/services/searchService";
 import { useAuth } from "@/contexts/AuthContext";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { Mic, Search } from "lucide-react";
 
 const AssistantApp = () => {
@@ -127,10 +126,7 @@ const AssistantApp = () => {
   );
 };
 
-const Index = () => (
-  <AuthProvider>
-    <AssistantApp />
-  </AuthProvider>
-);
+// We're removing the nested AuthProvider here since it needs to be provided from App.tsx
+const Index = () => <AssistantApp />;
 
 export default Index;
